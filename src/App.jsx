@@ -69,8 +69,8 @@ function App() {
             </div>
           </div>
         </form>
-        <div className="container py-4">
-          <div className="row">
+        <div className="container py-2">
+          <div className="row g-4">
             <ListMovie listMovie={listFiltered} />
           </div>
         </div>

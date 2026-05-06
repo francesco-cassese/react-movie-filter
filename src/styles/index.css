@@ -1,12 +1,19 @@
-/*
-  Stile generale del progetto
-  ===========================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  Questo file contiene gli stili globali dell'applicazione, cioè le regole
-  CSS che si applicano a tutta l'app (reset, tipografia di base, variabili,
-  utility personalizzate, ecc.).
+.movie-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-  Viene importato una sola volta in `src/main.jsx` e ha effetto su tutti i
-  componenti. Per stili specifici di un singolo componente è preferibile
-  usare un CSS Module (es. `NomeComponente.module.css`).
-*/
+.list-item {
+  display: flex;
+  width: 100%;
+  flex-basis: calc((100% / 3) - (20px * 2) / 3);
+  flex-shrink: 0;
+  flex-grow: 1;
+}

@@ -3,15 +3,18 @@ function ListMovie(props) {
         const { title, genre } = movie
         return (
             <li key={crypto.randomUUID()}>
-                <div>
-                    <h2>{title}</h2>
-                    <span>{genre}</span>
+                <div className="mb-2">
+                    <span className="badge rounded-pill bg-primary-subtle text-primary text-uppercase">
+                        {genre}
+                    </span>
+                    <h2 className="card-title fw-bold text-dark mb-0">{title}</h2>
+
                 </div>
             </li>
         )
     })
     return (
-        <ul>{listMovieJsx}</ul>
+        <ul className="list-unstyled">{listMovieJsx}</ul>
     )
 }
 export default ListMovie

@@ -12,7 +12,9 @@ function App() {
   const changeInputHandler = event => {
     const { value, name } = event.target;
     if (name === 'searchMovie') {
-      setSearch(value);
+      if (value.length <= 50) {
+        setSearch(value);
+      }
     } else if (name === 'movieGenre') {
       setSelectedGenre(value)
     }
@@ -20,7 +22,7 @@ function App() {
 
   useEffect(() => {
     const movieFiltered = movieList.filter(movie => {
-      const matchTitolo = movie.title.toLowerCase().includes(search.toLowerCase());
+      const matchTitolo = movie.title.toLowerCase().includes(search.trim().toLowerCase());
       const matchGenere = selectedGenre === "" || movie.genre === selectedGenre;
 
       return matchTitolo && matchGenere;

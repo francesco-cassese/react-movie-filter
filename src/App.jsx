@@ -33,10 +33,10 @@ function App() {
     <>
       <Header />
       <main>
-        <form>
+        <form className='p-4 bg-light rounded shadow-sm'>
           <div>
             <div className="col-md-6">
-              <label htmlFor="searchMovie" className="form-label fw-bold">
+              <label htmlFor="searchMovie" className="form-label fw-bold text-secondary small">
                 Cerca un film
               </label>
               <input
@@ -51,8 +51,8 @@ function App() {
             </div>
 
             <div className="col-md-6">
-              <label htmlFor="movieGenre" className="form-label fw-bold">
-                Genere
+              <label htmlFor="movieGenre" className="form-label fw-bold text-secondary small">
+                Filtra per Genere
               </label>
               <select
                 className="form-select"
@@ -68,10 +68,12 @@ function App() {
               </select>
             </div>
           </div>
-          <div className='mt-5'>
+        </form>
+        <div className="container py-4">
+          <div className="row">
             <ListMovie listMovie={listFiltered} />
           </div>
-        </form>
+        </div>
       </main>
     </>
   );

@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="container">
+      <main>
         <SearchBar
           search={search}
           selectedGenre={selectedGenre}

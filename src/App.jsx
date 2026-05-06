@@ -5,8 +5,29 @@ import ListMovie from './components/ListMovie.jsx';
 
 function App() {
   const [listMovie, setListMovie] = useState(movieList)
+  const [listFiltered, setListFiltered] = useState(movieList)
+  const [selectedGenre, setSelectedGenre] = useState("");
   const [search, setSearch] = useState('');
 
+  const changeInputHandler = event => {
+    const { value, name } = event.target;
+    if (name === 'searchMovie') {
+      setSearch(value);
+    } else if (name === 'movieGenre') {
+      setSelectedGenre(value)
+    }
+  }
+
+  useEffect(() => {
+    const movieFiltered = movieList.filter(movie => {
+      const matchTitolo = movie.title.toLowerCase().includes(search.toLowerCase());
+      const matchGenere = selectedGenre === "" || movie.genre === selectedGenre;
+
+      return matchTitolo && matchGenere;
+    });
+
+    setListFiltered(movieFiltered);
+  }, [search, selectedGenre, movieList]);
 
   return (
     <>
@@ -21,8 +42,11 @@ function App() {
               <input
                 type="text"
                 className="form-control"
-                id="search-movie"
+                id="searchMovie"
                 placeholder="Inserisci il titolo..."
+                value={search}
+                onChange={changeInputHandler}
+                name='searchMovie'
               />
             </div>
 
@@ -30,17 +54,22 @@ function App() {
               <label htmlFor="movieGenre" className="form-label fw-bold">
                 Genere
               </label>
-              <select className="form-select" id="movieGenre" defaultValue="">
-                <option value="" disabled>Scegli un genere...</option>
-                <option value="azione">Azione</option>
-                <option value="commedia">Commedia</option>
-                <option value="drammatico">Drammatico</option>
-                <option value="fantascienza">Fantascienza</option>
+              <select
+                className="form-select"
+                id="movieGenre"
+                value={selectedGenre}
+                onChange={changeInputHandler}
+                name='movieGenre'>
+                <option value="">Tutti i generi</option>
+                <option value="Azione">Azione</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Romantico">Romantico</option>
+                <option value="Fantascienza">Fantascienza</option>
               </select>
             </div>
           </div>
           <div className='mt-5'>
-            <ListMovie listMovie={movieList} />
+            <ListMovie listMovie={listFiltered} />
           </div>
         </form>
       </main>

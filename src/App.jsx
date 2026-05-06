@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import movieList from './data/movieList.js';
+import ListMovie from './components/ListMovie.jsx';
 
 function App() {
-  const [search, setSearch] = useState(movieList);
+  const [listMovie, setListMovie] = useState(movieList)
+  const [search, setSearch] = useState('');
+
+
   return (
     <>
       <Header />
@@ -35,6 +39,7 @@ function App() {
               </select>
             </div>
           </div>
+          <ListMovie listMovie={movieList} />
         </form>
       </main>
     </>

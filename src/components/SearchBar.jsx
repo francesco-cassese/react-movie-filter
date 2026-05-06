@@ -1,3 +1,5 @@
+import Input from "./reusable/Input"
+
 function SearchBar(props) {
     const { search, onInputChange, selectedGenre } = props
     return (
@@ -7,9 +9,8 @@ function SearchBar(props) {
                     <label htmlFor="searchMovie" className="form-label fw-bold text-secondary small">
                         Cerca un film
                     </label>
-                    <input
+                    <Input
                         type="text"
-                        className="form-control"
                         id="searchMovie"
                         placeholder="Inserisci il titolo..."
                         value={search}

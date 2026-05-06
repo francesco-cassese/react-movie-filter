@@ -8,9 +8,8 @@ function ListMovie(props) {
                         {genre}
                     </span>
                     <h2 className="card-title fw-bold text-dark mb-0">{title}</h2>
-
                 </div>
-            </li>
+            </li >
         )
     })
     return (

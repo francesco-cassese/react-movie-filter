@@ -39,7 +39,9 @@ function App() {
               </select>
             </div>
           </div>
-          <ListMovie listMovie={movieList} />
+          <div className='mt-5'>
+            <ListMovie listMovie={movieList} />
+          </div>
         </form>
       </main>
     </>

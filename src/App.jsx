@@ -34,7 +34,7 @@ function App() {
       <Header />
       <main>
         <form className='p-4 bg-light rounded shadow-sm'>
-          <div>
+          <div className="row g-3">
             <div className="col-md-6">
               <label htmlFor="searchMovie" className="form-label fw-bold text-secondary small">
                 Cerca un film

@@ -1,4 +1,5 @@
 import Input from "./reusable/Input"
+import Select from "./reusable/Select"
 
 function SearchBar(props) {
     const { search, onInputChange, selectedGenre } = props
@@ -23,18 +24,14 @@ function SearchBar(props) {
                     <label htmlFor="movieGenre" className="form-label fw-bold text-secondary small">
                         Filtra per Genere
                     </label>
-                    <select
+                    <Select
                         className="form-select"
                         id="movieGenre"
                         value={selectedGenre}
                         onChange={onInputChange}
-                        name='movieGenre'>
-                        <option value="">Tutti i generi</option>
-                        <option value="Azione">Azione</option>
-                        <option value="Thriller">Thriller</option>
-                        <option value="Romantico">Romantico</option>
-                        <option value="Fantascienza">Fantascienza</option>
-                    </select>
+                        name='movieGenre'
+                        options={['Azione', 'Fantascienza', 'Thriller', 'Romantico']}
+                    />
                 </div>
             </div>
         </form>
